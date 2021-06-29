@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/index.css">
+        <link rel="shortcut icon" href="/images/android-chrome-512x512.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <title>XTA-a marketplace for RUETIAN</title>
+    </head>
+<body>
+    <div class="sell_post_window">
+        <div class="sell_post" id="postitem">
+            <form>
+                <span class="close" title="Back To Homepage"><a href="index.html">&times;</a></span>
+                <label for="product_type">Product Type:</label>
+                <select name="product_type" id="product_type" required>
+                    <option value="" selected>Select a category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="ticket">Ticket</option>
+                    <option value="book">Book</option>
+                    <option value="two_wheeler">Two Wheeler</option>
+                    <option value="rent">Rent</option>
+                    <option value="home_appliance">Home Appliance</option>
+                </select> <br><br>
+                <div id="grp1">
+                    <label for="brand">Brand</label>
+                    <input type="text" name="brand" id="brand">
+                    <label for="model">Model</label>
+                    <input type="text" name="model" id="model"><br><br>
+                </div>
+                <div id="name">
+                    <label for="Name">Name</label>
+                    <input type="text" name="Name" placeholder="name of book or company">
+                </div>
+                <div id="author">
+                    <label for="Author">Author</label>
+                    <input type="text" name="Author">
+                </div>
+                <div id="cndtn">
+                    <input type="radio" name="condition">
+                    <label for="condition">Brand New</label>
+                    <input type="radio" name="condition">
+                    <label for="condition">Used</label><br><br>
+                </div>
+                <div id="des">
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description" cols="50" rows="10" placeholder="Specify your product more Precisely"></textarea><br><br>
+                </div>
+                <div id="grp2">
+                    <label for="price">Price:</label>
+                    <input type="number" name="price" id="price"><br><br><br>
+                    <label for="picture">Add Product Pictures</label>
+                    <input type="file" name="picture" id="picture"><br><br><br>
+                    <label for="location">Location</label>
+                    <input type="text" name="location" id="location"><br><br><br>
+                    <input type="radio" name="negotiation" id="negotiation">
+                    <label for="negotiation">Negotiable</label>
+                    <input type="radio" name="negotiation" id="non_negotiation">
+                    <label for="non_negotiation">Not Negotiable</label><br><br><br>
+                </div>
+                <div id="fromtodate">
+                    <input type="radio" name="ticket">
+                    <label for="ticket">Bus</label>
+                    <input type="radio" name="ticket">
+                    <label for="ticket">Train</label><br>
+                    <label for="from">From</label>
+                    <input type="text" name="from"><br>
+                    <label for="to">To</label>
+                    <input type="text" name="to"><br>
+                    <label for="time">Date & Time</label>
+                    <input type="datetime-local" name="time"><br>
+                    <label for="totalseat">Total Seats</label>
+                    <input type="number" name="totalseat">
+                </div>
+                <input type="submit" value="Submit" id="submit">
+            </form>
+        </div>
+    </div>
+    <script src="../js script/sellpost.js"></script>
+</body>
+</html>

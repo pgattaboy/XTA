@@ -1,0 +1,100 @@
+/************** Tag Selector ****************/
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    font-family: cursive;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+body{
+    background-image: url('/images/xta-removebg-preview.png');
+}
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #abe8f091;
+    }
+input:focus {
+    background-color: #ddd;
+    background: #abe8f0f6;
+    outline: none;
+    }
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    }
+button:hover {
+    opacity:1;
+    }
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+    }
+select{
+    margin-bottom: 1rem;
+}
+/************** Class Selector ****************/
+.clearfix {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.cancelbtn {
+    padding:1rem 2rem;
+    background-color: #f44336;
+    }
+.cancelbtn, .next{
+    flex: 1;
+    border-radius: .2rem;
+    }
+.main_container {
+    position: relative;
+    overflow: auto;
+    background-color: #10ceb4e5;
+    padding-top: 3.5rem;
+    }
+.container {
+    padding: 1rem;
+    }
+.signup_form {
+    background-color: #fefefece;
+    margin: 5% auto 15% auto;
+    border: 1px solid #888;
+    border-radius: .75rem;
+    width: 80%;
+    box-shadow:
+    0 12.1px 37.6px rgba(0, 0, 0, 0.016),
+    0 21.1px 51.6px rgba(0, 0, 0, 0.036),
+    0 38.4px 60.8px rgba(0, 0, 0, 0.059),
+    0 100px 80px rgba(0, 0, 0, 0.07);
+    }
+.close {
+    position: absolute;
+    right: 2.75rem;
+    top: 1rem;
+    font-size: 40px;
+    font-weight: bold;
+    color: #f1f1f1;
+    }
+.close:hover,.close:focus {
+    color: #f44336;
+    cursor: pointer;
+    }
+@media screen and (max-width: 50rem) {
+    .cancelbtn, .signupbtn {
+        width: 100%;
+    }
+    }
+/************** ID Selector ****************/
+
