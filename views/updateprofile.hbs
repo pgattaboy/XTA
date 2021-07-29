@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/android-chrome-192x192.png" e="image/x-icon">
+    <link rel="stylesheet" href="/css/update.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Update Profile</title>
+</head>
+
+<body>
+    {{#if message }}
+        <h4>{{message}}</h4>
+    {{/if}}
+    <div class="main-cntn">
+        <form action="/auth/updateform" method="POST"  enctype="multipart/form-data">
+            <table>
+                <caption>Update Your Profile</caption>
+                <tr>
+                    <th>Field Name</th>
+                    <th>Present Information</th>
+                    <th>New Information</th>
+                </tr>
+                <tr>
+                    <td>First Name</td>
+                    <td>{{user.fname}}</td>
+                    <td><input type="text" name="fname" id="fname" value={{user.fname}}></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>{{user.lname}}</td>
+                    <td><input type="text" name="lname" id="lname" value={{user.lname}}></td>
+                </tr>
+                <tr>
+                    <td>Date of birth</td>
+                    <td>{{user.dob}}</td>
+                    <td><input type="text" name="dob" id="dob" value={{user.dob}}></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>{{user.email}}</td>
+                    <td><input type="text" name="email" id="email" value={{user.email}}></td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td>{{user.location}}</td>
+                    <td><input type="text" name="location" id="location" value={{user.location}}></td>
+                </tr>
+                <tr>
+                    <td>Profile Picture</td>
+                    <td><img src="{{{user.profile_picture}}}" alt="user present profile picture"></td>
+                    <td><input type="file" name="prfilepicture" id="profilepicture" accept='image/*'></td>
+                </tr>
+            </table>
+            <div class="enterpassword">
+                <label for="password">Enter Password:</label>
+                <input type="password" name="password" id="password"><br>
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+    <div class="backtohome">
+        <form action="/" method="POST">
+        <button><img src="/images/icons8-home-page-50.png" alt="home Image" title="back to home"></button>
+        </form>
+    </div>
+</body>
+
+</html>

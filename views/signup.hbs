@@ -1,0 +1,62 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/signup.css">
+        <link rel="shortcut icon" href="/images/android-chrome-192x192.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <title>XTA-a marketplace for RUETIAN</title>
+    </head>
+    <body>
+        <div class="main_container">
+            <form action="/" method="POST">
+                <button name="Cancel" value="Cancel" id="cancel" style="background-color: transparent;"><span class="close" title="Close SignUp Form">&times;</span></button>
+            </form>
+            {{#if message }}
+                <h4>{{message}}</h4>
+            {{/if}}
+            <form class="signup_form" action="/auth/signupform" method="POST">
+            <div class="container">
+                <h1>Sign Up</h1>
+                <p>Please fill in this form to create an account.</p>
+                <hr>
+                <label for="fname">First Name</label>
+                <input type="text" name="fname" id="fname" required>
+                <label for="lname">Last Name</label>
+                <input type="text" name="lname" id="lname"required>
+                <label for="dob">Date of Birth</label>
+                <input type="date" name="dob" id="dob">
+                <label for="gender">Gender</label>
+                <select name="gender" id="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select> <br>
+                <label for="email"><strong>Email</strong></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+                <label for="password"><strong>Password</strong>(8-15 characters without special characters)</label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <label for="passwordRepeat"><strong>Repeat Password</strong></label>
+                <input type="password" placeholder="Repeat Password" name="passwordRepeat" required>
+                <label for="roll"><strong>Roll</strong></label>
+                <input type="roll" placeholder="Enter Roll" name="roll" required>
+                <label for="location" name="location">Location</label>
+                <select name="location" id="location">
+                    <option value="dhaka">Dhaka</option>
+                    <option value="rajshahi">Rajshahi</option>
+                    <option value="mymensing">Mymensing</option>
+                    <option value="shylet">Shylet</option>
+                    <option value="khulna">khulna</option>
+                    <option value="chittagong">Chittagong</option>
+                    <option value="rangpur">Rangpur</option>
+                </select>
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+                <button type="submit" class="createacc">Create Account</button>
+            </div>
+            </form>
+
+        </div>
+        <script src="/js script/signup.js"></script>
+    </body>
+    </html>

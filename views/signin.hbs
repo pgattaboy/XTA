@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/signin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <title>XTA-a marketplace for RUETIAN</title>
+    </head>
+<body>
+    {{#if message }}
+        <h4>{{message}}</h4>
+    {{/if}}
+    <div class="main_window">
+        <div class="info_window">
+            <div class="pic_section">
+                <img src="/images/android-chrome-192x192.png" alt="XTA LOGO">
+            </div>
+            <h1>Wellcome back to <span>XTA</span></h1>
+            <h3>Biggest marketplace for RUETIANs</h3>
+        </div>
+        <div class= "login_window">
+            <div class="login">
+                <div class="pic_section">
+                    <img src="/images/user login.jpg" alt="User Icon">
+                </div>
+                <h1>Sign In</h1>
+                <form action="/auth/login" method="POST" >
+                    <label for="roll">Student ID</label> <br>
+                    <input type="number" name="roll" id="roll" > <br>
+                    <label for="password">Password</label> <br>
+                    <input type="password" name="password" id="password"> <br>
+                    <button name="submit" type="submit" value="Submit" size="20">Submit</button>
+                </form>
+                <div class="extraoption">
+                    <div class="extraoption1">
+                        <form action="/" method="post">
+                            <button name="Cancel" value="Cancel" id="cancel">Cancel</button>
+                        </form>
+                    </div>
+                    <div class="extraoption2"><button>Forget Password?</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

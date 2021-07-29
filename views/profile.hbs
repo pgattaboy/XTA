@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/android-chrome-192x192.png" e="image/x-icon">
+    <link rel="stylesheet" href="/css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>My profile</title>
+</head>
+
+<body>
+    {{#if message }}
+        <h4>{{message}}</h4>
+    {{/if}}
+    <div class="main_container">
+        <div class="myprofile">
+            <h2>MY PROFILE</h2>
+            <img src= " {{{user.profile_picture}}} " alt="user profile pic">
+            <h2>{{user.roll}}</h2>
+            <div class="userinfo">
+                <p><h3>{{user.fname}} {{user.lname}}</h3></p>
+                <p>Date of Birth: {{user.dob}} </p>
+                <p>Gender: {{user.gender}} </p>
+                <p>Email : {{user.email}} </p>
+                <p>Location: {{user.location}} </p>
+            </div>
+            <form action="/updateprofile" method="get" class="editprofile">
+                <button type="submit">Edit profile</button>
+            </form>
+            <form action="" method="" class="changepassword">
+                <button type="submit">Change Your password</button>
+            </form>
+        </div>
+
+        <div class="myposts">
+            asdasfdkhgfdskjahlksjgvkjshdfgvbhdvhassdffhdfhshsdfhhggh
+        </div>
+
+    </div>
+    <div class="backtohome">
+        <form action="/" method="POST">
+        <button><img src="/images/icons8-home-page-50.png" alt="home Image" title="back to home"></button>
+        </form>
+    </div>
+</body>
+
+</html>

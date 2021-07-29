@@ -1,55 +1,60 @@
-const express = require("express") ;
-const bodyParser = require("body-parser");
+const express = require("express") 
+const dotenv = require("dotenv")
+const path = require('path')
+const handelBars = require("hbs")
+const mysql = require("mysql")
+const cookieParser = require("cookie-parser")
+const fs = require('fs')
+
+//as .env store secret info of database we need to create it first
+dotenv.config({ path: './.env' });
 
 const app = express();
 
-//to use public folder
-app.use(express.static('public'));
-app.use(bodyParser.urlencoded({extended:true}));//This is important for bodyparsing .
-
-app.get("/",function(req,res){
-
-    res.sendFile(__dirname + "/public/html/index.html");
+//we create connection with 'xta' database
+//env store sensitive infromation 
+const db = mysql.createConnection({
+    host: process.env.db_host,
+    user:process.env.db_user,
+    password: process.env.db_password,
+    database: process.env.db,
 });
 
-app.get("/signup",function(req,res){
-    res.sendFile(__dirname + "/public/html/signup.html");
+//to use public folder 
+const publicDirectory = path.join(__dirname , './public');
+app.use(express.static(publicDirectory));
+
+//what kind of engine to show html template
+app.set('view engine', 'hbs');
+
+//we are connecting with data basae
+db.connect((error)=>{
+    if(error){
+        console.log(error);//if anything wrong happened it will print error.
+    }
+    else{
+        console.log("MySQL is connected...");
+    }
 });
 
-app.get("/signin",function(req,res){
-    res.sendFile(__dirname + "/public/html/signin.html");
-});
+//secure bodyParsing
+//extended true--use qs library which allow any kind of dataset as object value
+//extended false--use querystring library which only allow to use string and array as object value
+app.use(express.urlencoded({extended:true}));
 
-app.get("/sellpost",function(req,res){
-    res.sendFile(__dirname + "/public/html/sellpost.html");
-});
 
-app.post("/login",function(req,res){
-    
-    console.log(req.body.email);
-    console.log(req.body.password);
+//the value coming from form or API must be in JSON form
+app.use(express.json())
 
-    //incase the user exist in the databasae and password matches
-    //res.sendFile(__dirname + "/public/html/index.html");
-});
+//always after express.json
+app.use(cookieParser())
 
-app.post("/signupform",function(req,res){
-    console.log(req.body.fname);
-    console.log(req.body.lname);
-    console.log(req.body.gender);
-    console.log(req.body.dob);
-    console.log(req.body.roll);
-    console.log(req.body.email);
 
-    //incase the user exist in the databasae and password matches
-    //res.sendFile(__dirname + "/public/html/index.html");
-});
+//defining all the routes in pages.js
+app.use('/',require('./routes/pages'))
+app.use('/auth',require('./routes/auth'))
 
-app.post("/post",function(req,res){
-    console.log("Request Recieved!");
-    console.log(req.body.product_type);
-});
 
 app.listen("5500",function(){
-    console.log("The server is up and running on PORT 5500");
+    console.log("The server is up and running on PORT 5500")
 });

@@ -1,0 +1,102 @@
+/******************** Tag Selector *******************/
+*{
+    margin: 0rem;
+    padding: 0rem;
+    box-sizing: border-box;
+}
+body{
+    font-family: cursive;
+    background-color: rgba(0, 255, 255, 0.692);
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+h2{
+    text-align: center;
+    padding: 2rem 0;
+}
+
+h4{
+    padding:.5rem; 
+    background-color: rgb(255, 0, 0);
+    color:black;
+    text-align: center;
+    border-radius: .5rem;
+    margin: 1rem;
+}
+
+button{
+    padding: .5rem 2rem;
+    font-size: 1rem;
+    display: block;
+    margin: .6rem auto 1rem;
+    border-radius: .5rem;
+    background-color: rgb(0, 153, 255);
+    border-inline: none;
+    border-image-outset: 0;
+}
+button:hover{
+    padding: .6rem 2.3rem;
+    font-size: 1.2rem;
+    display: block;
+    margin: .7rem auto 1.2rem;
+    border-radius: .5rem;
+    background-color: rgb(0, 153, 255);
+    border-inline: initial;
+}
+/******************* Class Selector ******************/
+
+.backtohome{
+    border:.01rem solid transparent;
+    border-radius: 100%;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+.backtohome button{
+    border:.01rem solid transparent;
+    display: block;
+    margin: 0;
+    border-radius: 100%;
+    background-color: transparent;
+}
+
+.backtohome button:hover{
+    border:.02rem solid transparent;
+    display: block;
+    margin: 0;
+    border-radius: 100%;
+    background-color: transparent;
+}
+
+.main_container{
+    display: flex;
+    margin: 2rem 0 3rem 2rem;
+    flex-wrap: wrap;
+}
+.myprofile{
+    min-width: 30%;
+    margin: 0 1rem 0 0;
+}
+.myprofile img{
+    display: block;
+    margin: 0 auto;
+    max-width: 20rem;
+    max-height: 15rem;
+    border-radius: 50%;
+    border-bottom: .25rem solid rgb(88, 87, 87);
+}
+
+.userinfo{
+    text-align: center;
+    margin-bottom:  1.5rem;
+    border: .2rem dashed blue;
+}
+
+.myposts{
+    min-width: 60%;
+    max-width:70%;
+}
