@@ -28,6 +28,8 @@
                     <input type="text" name="brand" id="brand">
                     <label for="model">Model</label>
                     <input type="text" name="model" id="model"><br><br>
+                    <label for="product">Product</label>
+                    <input type="text" name="product" id="product">
                 </div>
                 <div id="name">
                     <label for="name">Name</label>
@@ -54,10 +56,11 @@
                     <input type="file" accept='image/*' name="picture" id="picture" multiple><br><br><br>
                     <label for="location">Location</label>
                     <input type="text" name="location" id="location"><br><br><br>
-                    
+                    <label for="total_product">Total Services</label>
+                    <input type="number" name="total_product"> <br><br>
                     <input type="radio" name="negotiation" id="negotiation" value="negotiable">
                     <label for="negotiation">Negotiable</label>
-                    <input type="radio" name="negotiation" id="non_negotiation" value="non_negotiation">
+                    <input type="radio" name="negotiation" id="non_negotiation" value="not_negotiable">
                     <label for="non_negotiation">Not Negotiable</label><br><br><br>
                 </div>
                 <div id="fromtodate">
@@ -71,8 +74,6 @@
                     <input type="text" name="to"><br>
                     <label for="time">Date & Time</label>
                     <input type="datetime-local" name="time"><br>
-                    <label for="total_product">Total Services</label>
-                    <input type="number" name="total_product">
                 </div>
                 <button type="submit" value="submit" id="submit">Submit</button>
             </form>

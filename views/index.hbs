@@ -17,8 +17,8 @@
         <div class="navbar_option">
             <ul>
                 {{#if user}}
-                    <li><form action="/auth/signout" method="GET"><button>SignOut</button></form></li>
-                    <li><form action="/Profile" method="GET"><button>My Profile</button></form></li>
+                    <li><form action="/auth/signout" method="GET"><button style="background-color: red;">SignOut</button></form></li>
+                    <li><form action="/auth/profile" method="GET"><button>{{user.roll}}  {{user.fname}}</button></form></li>
                     <li><button><i class="fas fa-comments"></i> GIT</button></li>
                     <li><form action="/sellpost" method="GET"><button  id="sellpostbtn"><i class="far fa-sticky-note"></i>Sell Your Product</button></form></li>
                 {{else}}

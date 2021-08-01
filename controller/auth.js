@@ -127,6 +127,30 @@ exports.isLoggedIn = async (req, res, next)=>{
         next()
     }
 }
+
+exports.getProfile = (req,res)=>{
+    console.log("get profile");
+    let sql = "SELECT * FROM posts WHERE roll = ? ORDER BY dop DESC"
+    let data = req.user.roll
+    db.query(sql,[data],(error,result)=>{
+        try {
+            console.log("in get profile");
+            console.log(result);
+            if(req.user){
+                res.render('profile',{
+                    user: req.user,
+                    data: result
+                })
+            }
+            else{
+                res.redirect('/signin')
+            }
+            //exports.val = result
+        } catch (error) {
+            throw error
+        }
+    })
+}
 //
 //first we need to upload data in the server then store that address in the database
 //to do that we use global variable that had been defined by global function(important)
@@ -220,13 +244,12 @@ exports.createPost = async (req,res,err)=>{
         var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
         var yyyy = today.getFullYear()
         today = mm + '/' + dd + '/' + yyyy
-        // console.log(today)
-        //console.log(req.body)
-        // console.log(req.user)
+        //
         const roll = req.user.roll
         const product_type = req.body.product_type
         const brand = req.body.brand
         const model = req.body.model
+        const product = req.body.product
         const name =  req.body.name
         const author = req.body.author
         const description = req.body.description
@@ -235,7 +258,7 @@ exports.createPost = async (req,res,err)=>{
         const spoint = req.body.from
         const epoint = req.body.to
         const starting_time = req.body.time
-        const total_product = req.body.totalseat
+        const total_product = req.body.total_product
         const sold = "no"
         const dop = today
         const product_condition = req.body.condition
@@ -246,15 +269,21 @@ exports.createPost = async (req,res,err)=>{
         //before inserting database we need to cheeck weather there are files were not
         //as here we are accepting two pictures...we have to use req.files...with s
         //console.log(req.files)
-        let data
-        let pic1Path = req.files[0].path.replace("public","..")
-        let pic2Path = req.files[1].path.replace("public","..")
-        console.log( pic1Path +" "+ pic2Path );
-        if(!req.files || err instanceof multer.MulterError){
-            data= {roll:roll,product_type: product_type,brand: brand,model :model,name :name,author :author,description :description,price :price,location :location,spoint :spoint,epoint :epoint,starting_time :starting_time,total_product :total_product,sold :sold,dop :dop,product_condition :product_condition,negotiation :negotiation,ticket_type :ticket_type}
+        let data,pic1Path,pic2Path
+        if(req.files[0]){
+            pic1Path = req.files[0].path.replace("public","..")
+        }
+        if(req.files[1]){
+            pic2Path = req.files[1].path.replace("public","..")
         }
         else{
-            data= {roll:roll,product_type: product_type,brand: brand,model :model,name :name,author :author,description :description,price :price,location :location,spoint :spoint,epoint :epoint,starting_time :starting_time,total_product :total_product,sold :sold,dop :dop,product_condition :product_condition,negotiation :negotiation,ticket_type :ticket_type,img1: pic1Path,img2: pic2Path}
+            pic2Path=null
+        }
+        if(!req.files || err instanceof multer.MulterError){
+            data= {roll: roll,product_type: product_type,brand: brand,model :model,product :product,name :name,author :author,description :description,price :price,location :location,spoint :spoint,epoint :epoint,starting_time :starting_time,total_product :total_product,sold :sold,dop :dop,product_condition :product_condition,negotiation :negotiation,ticket_type :ticket_type}
+        }
+        else{
+            data= {roll:roll,product_type: product_type,brand: brand,model :model,product :product,name :name,author :author,description :description,price :price,location :location,spoint :spoint,epoint :epoint,starting_time :starting_time,total_product :total_product,sold :sold,dop :dop,product_condition :product_condition,negotiation :negotiation,ticket_type :ticket_type,img1: pic1Path,img2: pic2Path}
         }
         let sql = "INSERT INTO posts SET ?"
         db.query(sql,data,(error,result)=>{

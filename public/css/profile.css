@@ -13,7 +13,7 @@ a{
     color: inherit;
 }
 
-h2{
+h2,h3{
     text-align: center;
     padding: 2rem 0;
 }
@@ -75,7 +75,7 @@ button:hover{
 .main_container{
     display: flex;
     margin: 2rem 0 3rem 2rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 .myprofile{
     min-width: 30%;
@@ -97,6 +97,28 @@ button:hover{
 }
 
 .myposts{
-    min-width: 60%;
-    max-width:70%;
+    min-width: 70%;
 }
+
+.header{
+    margin: .3rem 1rem;
+}
+.post_window{
+    display: flex;
+    flex-wrap: wrap;
+    border: .2rem double white;
+}
+
+.product_pic{
+    min-width: 100%;
+}
+.product_pic img{
+    max-width: 25rem;
+    max-height: 20rem;
+    margin: 2rem 1rem 0 1rem;
+}
+
+.product_info{
+    margin: .3rem 1rem;
+}
+/******************* ID Selector ******************/

@@ -13,15 +13,17 @@
 
 <body>
     {{#if message }}
-        <h4>{{message}}</h4>
+    <h4>{{message}}</h4>
     {{/if}}
     <div class="main_container">
         <div class="myprofile">
             <h2>MY PROFILE</h2>
-            <img src= " {{{user.profile_picture}}} " alt="user profile pic">
+            <img src=" {{{user.profile_picture}}} " alt="user profile pic">
             <h2>{{user.roll}}</h2>
             <div class="userinfo">
-                <p><h3>{{user.fname}} {{user.lname}}</h3></p>
+                <p>
+                <h3>{{user.fname}} {{user.lname}}</h3>
+                </p>
                 <p>Date of Birth: {{user.dob}} </p>
                 <p>Gender: {{user.gender}} </p>
                 <p>Email : {{user.email}} </p>
@@ -36,15 +38,76 @@
         </div>
 
         <div class="myposts">
-            asdasfdkhgfdskjahlksjgvkjshdfgvbhdvhassdffhdfhshsdfhhggh
+            <h3>My Posts</h3>
+            {{#if data}}
+            {{#each data}}
+                <div class="header">
+                    <strong>{{this.roll}}</strong> <sub> {{this.dop}} </sub>
+                </div>
+                <div class="post_window">
+                    <div class="product_pic">
+                        {{#if this.img1}}
+                            <img src="{{{this.img1}}}" alt="product pics">
+                        {{/if}}
+                        {{#if this.img2}}
+                            <img src="{{{this.img2}}}" alt="product pics">
+                        {{/if}}
+                    </div>
+                    <div class="product_info">
+                        <strong>Product Type:</strong> {{this.product_type}} <br>
+                        {{#if this.product}}
+                        <strong>Product:</strong> {{this.product}} ({{this.total_product}}) <br>
+                        {{/if}}
+                        {{#if this.brand}}
+                        <strong>Brand:</strong> {{this.brand}} {{this.model}} <br>
+                        {{/if}}
+                        {{#if this.name}}
+                        <strong>Name:</strong> {{this.name}} <br>
+                        {{/if}}
+                        {{#if this.author}}
+                        <strong>Author's Name:</strong>{{this.author}} <br>
+                        {{/if}}
+                        {{#if this.product_condition}}
+                        <strong>Condition:</strong> {{this.product_condition}} <br>
+                        {{/if}}
+                        {{#if this.description}}
+                        {{this.description}} <br>
+                        {{/if}}
+                        {{#if this.price}}
+                        <strong>Price:</strong> {{this.price}}
+                        {{#if this.negotiation}}
+                        ({{this.negotiation}}) <br>
+                        {{/if}}
+                        {{/if}}
+                        {{#if this.location}}
+                        <strong>Location:</strong>{{this.location}} <br>
+                        {{/if}}
+                        {{#if this.ticket_type}}
+                        <strong>Ticket of:</strong>{{this.ticket_type}} <br>
+                        {{/if}}
+                        {{#if this.spoint}}
+                        <strong>Starting From </strong>: {{this.spoint}} 
+                        {{/if}}
+                        {{#if this.epoint}}
+                        <strong>Destination </strong>: {{this.epoint}} <br>
+                        {{/if}}
+                        {{#if this.starting_time}}
+                        Date & Time: {{this.starting_time}} <br>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/each}}
+            {{/if}}
         </div>
-
     </div>
     <div class="backtohome">
         <form action="/" method="POST">
-        <button><img src="/images/icons8-home-page-50.png" alt="home Image" title="back to home"></button>
+            <button><img src="/images/icons8-home-page-50.png" alt="home Image" title="back to home"></button>
         </form>
     </div>
 </body>
 
 </html>
+<!--
+                        
+-->

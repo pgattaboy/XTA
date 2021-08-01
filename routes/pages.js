@@ -10,22 +10,9 @@ router.get("/signup",(req,res)=>{
 router.get("/signin",(req,res)=>{
     res.render('signin')
 });
-
-router.get("/profile", authController.isLoggedIn , (req,res)=>{
-    //first we will check wether the user is logged IN
-    //if the user is logged in the req.user will carry the correct value
-    //console.log(req.user);
-    if(req.user){
-        res.render('profile',{
-            user: req.user,
-        })
-
-    }
-    else{
-        res.redirect('/signin')
-    }
-})
-
+//
+//get homepage
+//
 router.get("/",authController.isLoggedIn,(req,res)=>{
     if(req.user){
         res.render('index',{
@@ -35,7 +22,9 @@ router.get("/",authController.isLoggedIn,(req,res)=>{
     else
     res.render('index')
 })
-
+//
+//post homepage
+//
 router.post("/",authController.isLoggedIn,(req,res)=>{
     if(req.user){
         res.render('index',{
@@ -45,7 +34,9 @@ router.post("/",authController.isLoggedIn,(req,res)=>{
     else
     res.render('index')
 });
-
+//
+//get update profile page
+//
 router.get("/updateprofile",authController.isLoggedIn,(req,res)=>{
     if(req.user){
         res.render('updateprofile',{
@@ -55,7 +46,9 @@ router.get("/updateprofile",authController.isLoggedIn,(req,res)=>{
     else
     res.render('signin')
 })
-
+//
+//get sellpost page
+//
 router.get("/sellpost",authController.isLoggedIn,(req,res)=>{
     if(req.user){
         res.render('sellpost',{

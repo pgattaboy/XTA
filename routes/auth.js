@@ -16,4 +16,6 @@ router.get("/signout",authController.signOut)
 
 router.post("/post", authController.isLoggedIn, productUpload.array("picture",2) ,authController.createPost)
 
+router.get("/profile", authController.isLoggedIn,authController.getProfile )
+
 module.exports = router
