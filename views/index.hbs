@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="shortcut icon" href="/images/android-chrome-192x192.png"e="image/x-icon">
+    <link rel="shortcut icon" href="/images/android-chrome-192x192.png" e="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>XTA-a marketplace for RUETIAN</title>
 </head>
+
 <body>
     <div class="navbar" id="home">
         <div class="navbar_logo">
@@ -17,102 +19,174 @@
         <div class="navbar_option">
             <ul>
                 {{#if user}}
-                    <li><form action="/auth/signout" method="GET"><button style="background-color: red;">SignOut</button></form></li>
-                    <li><form action="/auth/profile" method="GET"><button>{{user.roll}}  {{user.fname}}</button></form></li>
-                    <li><button><i class="fas fa-comments"></i> GIT</button></li>
-                    <li><form action="/sellpost" method="GET"><button  id="sellpostbtn"><i class="far fa-sticky-note"></i>Sell Your Product</button></form></li>
+                <li>
+                    <form action="/auth/signout" method="GET"><button style="background-color: red;">SignOut</button>
+                    </form>
+                </li>
+                <li>
+                    <form action="/auth/profile" method="GET"><button>{{user.roll}} {{user.fname}}</button></form>
+                </li>
+                <li>
+                    <form action="/chatroom" method="POST"><button><i class="fas fa-comments"></i> GIT</button></form>
+                </li>
+                <li>
+                    <form action="/sellpost" method="GET"><button id="sellpostbtn"><i
+                                class="far fa-sticky-note"></i>Sell Your Product</button></form>
+                </li>
                 {{else}}
-                    <li><form action="/signin" method="GET"><button>SignIn</button></form></li>
-                    <li><form action="/signup" method="GET"><button>SignUp</button></form></li>
+                <li>
+                    <form action="/signin" method="GET"><button>SignIn</button></form>
+                </li>
+                <li>
+                    <form action="/signup" method="GET"><button>SignUp</button></form>
+                </li>
                 {{/if}}
             </ul>
         </div>
     </div>
     <div class="middle">
         <ul>
-            <li><button>Latest Posts</button></li>
-            <li><button><i class="fab fa-searchengin"></i>Search</button></li>
-            <li><marquee behavior="scroll" direction="left">
-                <p>Have Anything <span>EXTRA???</span>
-                Sell it on <span>XTA!!!</span></p>
-            </marquee></li>
+            <li><button class="latest">Latest Posts</button></li>
+            <!--<li><button class="searching"><i class="fab fa-searchengin"></i>Search</button></li>-->
+            <li>
+                <marquee behavior="scroll" direction="left">
+                    <p>Have Anything <span>EXTRA???</span>
+                        Sell it on <span>XTA!!!</span></p>
+                </marquee>
+            </li>
         </ul>
     </div>
     <br>
     <div class="posts_container">
-        <div class="post_container">
-            <div class="user_info">
-                <div class="user_pic">
-                    <img src="/images/pg.jpg" alt="user profile pic">
+        <div class="searchingoption">
+            <form action="/search" method="GET">
+                <label for="product_type">Product Type:</label>
+                <select name="product_type" id="product_type" size="1" required>
+                    <option value="%" selected>Select a category</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="ticket">Ticket</option>
+                    <option value="book">Book</option>
+                    <option value="vehicle">Vehicle</option>
+                    <option value="rent">Rent</option>
+                    <option value="home_appliance">Home Appliance</option>
+                </select> <br><br>
+                <div id="grp1">
+                    <label for="brand">Brand</label>
+                    <input type="text" name="brand" id="brand">
+                    <label for="product">Product</label>
+                    <select name="product" id="product">
+                        <option value="">Select a category</option>
+                        <option value="Phone">Phone</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Desktop">Desktop</option>
+                        <option value="Camera">Camera</option>
+                        <option value="Book">Book</option>
+                        <Option value="Cycle">Cycle</Option>
+                        <option value="Bike">Bike</option>
+                        <option value="%">Others</option>
+                    </select>
+                    <!--<input type="text" name="product" id="product">-->
                 </div>
-                <div class="user_name">
-                    1703067 Sajib
+                <div id="name">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" size="20" placeholder="Ex. company , book">
                 </div>
-            </div>
-            <div class="product_info1">
-                <div class="product_pic">
-                    <img src="/images/bycycle.jfif" alt="Product pic">
+                <div id="author">
+                    <label for="author">Author</label>
+                    <input type="text" name="author">
                 </div>
-                <div class="product_info">
-                    Product Type <br>
-                    product description <br>
-                    price <br>
-                    other info.
-                    <button><i class="fas fa-comments"></i> GIT</button>
+                <div id="grp2">
+                    <label for="price">Budget:</label>
+                    <input type="number" id="price" name="price" placeholder="Max-Budget"><br>
+                    <label for="location">Location</label>
+                    <input type="text" name="location" id="location"><br>
                 </div>
-            </div>
-            <div class="user_info">
-                <div class="user_pic">
-                    <img src="/images/pg.jpg" alt="user profile pic">
+                <div id="fromtodate">
+                    <input type="radio" name="ticket_type" value="bus">
+                    <label for="ticket_type">Bus</label>
+                    <input type="radio" name="ticket_type" value="train">
+                    <label for="ticket_type">Train</label><br>
+                    <label for="from">From</label>
+                    <input type="text" name="from"><br>
+                    <label for="to">To</label>
+                    <input type="text" name="to"><br>
+                    <label for="time">Date</label>
+                    <input type="date" name="time"><br>
                 </div>
-                <div class="user_name">
-                    1703067 Sajib
-                </div>
-            </div>
-            <div class="product_info1">
-                <div class="product_pic">
-                    <img src="/images/bycycle.jfif" alt="Product pic">
-                </div>
-                <div class="product_info">
-                    Product Type <br>
-                    product description <br>
-                    price <br>
-                    other info.
-                    <button><i class="fas fa-comments"></i> GIT</button>
-                </div>
-            </div>
-            <div class="user_info">
-                <div class="user_pic">
-                    <img src="/images/pg.jpg" alt="user profile pic">
-                </div>
-                <div class="user_name">
-                    1703067 Sajib
-                </div>
-            </div>
-            <div class="product_info1">
-                <div class="product_pic">
-                    <img src="/images/bycycle.jfif" alt="Product pic">
-                </div>
-                <div class="product_info">
-                    Product Type <br>
-                    product description <br>
-                    price <br>
-                    other info.
-                    <button><i class="fas fa-comments"></i> GIT</button>
-                </div>
-            </div>
+                <button class="searching" type="submit"><i class="fab fa-searchengin"></i>Search</button>
+            </form>
         </div>
-    </div>
-    <div class="ending">
-        <div class="ending_1"><a href="#home">Home</a></div>
-        <div class="ending_1">Tutorial</div>
-        <div class="ending_1">Feedback</div>
-        <div class="ending_1">Contact Us</div>
-        <div class="ending_1">About Us</div>
+        <div class="post_container">
+            {{#if data}}
+            {{#each data}}
+            <div class="header">
+                <strong>{{this.roll}}</strong> <sub> {{this.dop}} </sub>
+            </div>
+            <div class="post_window">
+                <div class="indexproduct_pic">
+                    {{#if this.img1}}
+                    <img src="{{{this.img1}}}" alt="product pics">
+                    {{/if}}
+                    {{#if this.img2}}
+                    <img src="{{{this.img2}}}" alt="product pics">
+                    {{/if}}
+                </div>
+                <div class="indexproduct_info">
+                    <strong>Product Type:</strong> {{this.product_type}} <br>
+                    {{#if this.product}}
+                    <strong>Product:</strong> {{this.product}} ({{this.total_product}}) <br>
+                    {{/if}}
+                    {{#if this.brand}}
+                    <strong>Brand:</strong> {{this.brand}} {{this.model}} <br>
+                    {{/if}}
+                    {{#if this.name}}
+                    <strong>Name:</strong> {{this.name}} <br>
+                    {{/if}}
+                    {{#if this.author}}
+                    <strong>Author's Name:</strong>{{this.author}} <br>
+                    {{/if}}
+                    {{#if this.product_condition}}
+                    <strong>Condition:</strong> {{this.product_condition}} <br>
+                    {{/if}}
+                    {{#if this.description}}
+                    {{this.description}} <br>
+                    {{/if}}
+                    {{#if this.price}}
+                    <strong>Price:</strong> {{this.price}}
+                    {{#if this.negotiation}}
+                    ({{this.negotiation}}) <br>
+                    {{/if}}
+                    {{/if}}
+                    {{#if this.location}}
+                    <strong>Location:</strong>{{this.location}} <br>
+                    {{/if}}
+                    {{#if this.ticket_type}}
+                    <strong>Ticket of:</strong>{{this.ticket_type}} <br>
+                    {{/if}}
+                    {{#if this.spoint}}
+                    <strong>Starting From </strong>: {{this.spoint}}
+                    {{/if}}
+                    {{#if this.epoint}}
+                    <strong>Destination </strong>: {{this.epoint}} <br>
+                    {{/if}}
+                    {{#if this.starting_time}}
+                    Date & Time: {{this.starting_time}} <br>
+                    {{/if}}
+                </div>
+                <form action="/addchatroom" method="get">
+                    <input type="hidden" name="room" value="{{this.id}}" >
+                    <input type="hidden" name="host" value="{{this.roll}}">
+                    <button type="submit"class="gitbutton"><strong>GIT</strong></button>
+                </form>
+            </div>
+            {{/each}}
+            {{/if}}
+        </div>
     </div>
     <div class="ending_again">
         <p>&#169 undergrad product 2021</p>
     </div>
     <script src="/js script/index.js"></script>
 </body>
+
 </html>

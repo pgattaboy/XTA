@@ -34,9 +34,26 @@ textarea{
     border: .1rem solid black;
 }
 textarea:focus{
-    background-color: rgba(138, 64, 103, 0.897);
+    background-color: rgba(37, 201, 192, 0.897);
     outline: none;
     color: black;
+}
+button{
+    padding: .8rem 1.2rem;
+    background: rgba(11, 184, 118, 0.534);
+    outline: none;
+    border: none;
+}
+/*not to show arrow in number field*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 /******************** Class Selector *******************/
 .navbar{
@@ -79,7 +96,7 @@ textarea:focus{
 }
 
 .middle{
-    margin:0 20%;
+    margin:0 10%;
 }
 .middle ul{
     list-style-type: none;
@@ -115,7 +132,7 @@ font-size: 20px;
 }
 .posts_container{
     clear: both;
-    margin: 0 20%;
+    margin: 0 10%;
     background-image: linear-gradient(to left, rgba(204, 196, 196, 0.514), rgba(148, 228, 197, 0.795));
     border-radius: 0 1.5rem 0 0;
     box-shadow:
@@ -131,9 +148,7 @@ font-size: 20px;
     0 89px 184px -20px rgba(0, 0, 0, 0.06);
 
 }
-.post_container{
-    padding: 1.5rem 3rem 2rem .5rem;
-}
+
 .user_info{
     display: flex;
     flex-wrap: nowrap;
@@ -234,6 +249,40 @@ font-size: 20px;
     background-color:linear-gradient(to bottom left,rgb(127, 76, 150), rgb(255, 0, 212));
     border: .2rem dashed rgb(143, 53, 185);
 }
+
+.header{
+    margin: .3rem 1rem;
+}
+.post_window{
+    display: flex;
+    flex-wrap: wrap;
+    border-top: .2rem dashed rgba(51, 47, 47, 0.705);
+    border-bottom: .2rem dashed rgba(51, 47, 47, 0.705);
+    border-radius: 1rem;
+}
+
+.indexproduct_pic{
+    min-width: 100%;
+}
+.indexproduct_pic img{
+    max-width: 25rem;
+    max-height: 20rem;
+    margin: 2rem 1rem 0 1rem;
+}
+
+.indexproduct_info{
+    margin: .3rem 1rem;
+}
+
+.gitbutton{
+    margin: .2rem;
+    padding: .3rem;
+    border-radius: .7rem;
+    font-family: cursive;
+    font-size: .8rem;
+    background-image: linear-gradient(to top left,rgb(99, 221, 170),rgba(205, 135, 233, 0.842));
+}
+
 /******************** id Selector *******************/
 #grp1{
     display: none;

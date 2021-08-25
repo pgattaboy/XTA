@@ -1,0 +1,140 @@
+/*............. Tag Selector ...............*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+    margin: 1rem;
+}
+li{
+    margin-bottom: 1rem;
+    padding: .5rem;
+    border-radius: .3rem;
+    background-color: rgba(29, 226, 226, 0.726);
+    text-align: center;
+}
+
+
+/*............. Class Selector ...............*/
+.main_cntn{
+    display: flex;
+    width: 80%;
+    height: 80%;
+    margin: 3rem auto;
+    background-color: blueviolet;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 22px 50px 4px rgba(0,0,0,0.8); 
+    box-shadow: 0px 22px 50px 4px rgba(0,0,0,0.8);
+}
+.additional{
+    flex: 10%;
+    font-size: 1.2rem;
+}
+.main_area{
+    flex: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    height: 10vh;
+    font-size: 1.2rem;
+    padding: 1.5rem;
+    margin: auto;
+    display: block;
+}
+.message_area{
+    height: 500px;
+    margin: .5rem .5rem .2rem 0;
+    border-radius: .5rem;
+    background-color: rgba(240, 248, 255, 0.568);
+    overflow-y: auto;
+}
+.message_cntn{
+    width: 80%;
+    padding: .6rem;
+    margin:.5rem .5rem 1rem .5rem;
+    font-size: 1.2rem;
+    -webkit-box-shadow: -6px 9px 11px 1px rgba(0,0,0,0.8); 
+    box-shadow: -6px 9px 11px 1px rgba(0,0,0,0.8);
+}
+.incoming{
+    background-color: rgba(148, 68, 223, 0.801);
+    border-radius: .6rem .6rem .6rem 0;
+}
+.outgoing{
+    margin-left: auto;
+    background-color: rgb(128, 24, 226);
+    border-radius: .6rem .6rem 0 .6rem ;
+}
+
+.footer {
+	padding: 20px 30px;
+	margin-top: .4rem;
+}
+.footer form {
+	display: flex;
+}
+
+.footer input[type='text'] {
+	font-size: 16px;
+	padding: 5px;
+	height: 40px;
+	flex: 1;
+    border-radius: .5rem;
+}
+.btn {
+	cursor: pointer;
+    margin-left: .2rem;
+	padding: 5px 15px;
+	background: transparent;
+    color: rgb(255, 255, 255);
+	border: none;
+	font-size: 1rem;
+}
+
+.backtohome{
+    border:.01rem solid transparent;
+    border-radius: 100%;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
+
+.backtohome button{
+    border:.01rem solid transparent;
+    display: block;
+    margin: 0;
+    border-radius: 100%;
+    background-color: transparent;
+}
+
+.backtohome button:hover{
+    border:.02rem solid transparent;
+    display: block;
+    margin: 0;
+    border-radius: 100%;
+    background-color: transparent;
+}
+
+.chatrooms button{
+    background-color: transparent;
+    border:none;
+    margin:1rem .5;
+    font-size:1rem;
+    padding: .2rem;
+}
+.chatrooms button:hover{
+    border: .1rem solid rgba(134, 133, 132, 0.596);
+    border-radius: .5rem;
+    padding: .3rem;
+
+}
+@media (max-width: 600px) {
+	.message_area {
+		height: 450px;
+        width: 80%;
+	}
+}
+/*............. ID Selector ...............*/

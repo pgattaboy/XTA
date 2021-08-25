@@ -10,7 +10,7 @@ router.post("/login",authController.login)
 //first calling middleware to have user roll mto embedded that in user picture address 
 //after that we are calling the upload function to upload the picture
 //then we calling to save that data to store in database and reload the profile picture
-router.post("/updateform", authController.isLoggedIn, profileUpload.single("prfilepicture") , authController.updateData)
+router.post("/updateform", authController.isLoggedIn, profileUpload.single("profilepicture") , authController.updateData)
 
 router.get("/signout",authController.signOut)
 

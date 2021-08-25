@@ -93,7 +93,7 @@ button:hover{
 .userinfo{
     text-align: center;
     margin-bottom:  1.5rem;
-    border: .2rem dashed blue;
+    border: none;
 }
 
 .myposts{
@@ -106,7 +106,9 @@ button:hover{
 .post_window{
     display: flex;
     flex-wrap: wrap;
-    border: .2rem double white;
+    border-top: .2rem dashed rgba(73, 70, 67, 0.767);
+    border-bottom: .2rem dashed rgba(73, 70, 67, 0.767);
+    border-radius: 1rem;
 }
 
 .product_pic{
